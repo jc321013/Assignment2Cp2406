@@ -18,6 +18,7 @@ public class STMainGUI extends JFrame {
     final int WIDTH = 275;
 
     private STGame game;
+    PlayerView playerView;
 
     public static void main(String[] args)
     {
@@ -51,8 +52,12 @@ public class STMainGUI extends JFrame {
 
                 game.selectYouAsPlayer();
                 STPlayer humanPlayer = game.getHumanPlayer();
-                PlayerView view = new PlayerView(humanPlayer);
-                add(view, BorderLayout.CENTER);
+                if (playerView != null) {
+                    remove(playerView);
+                }
+
+                playerView = new PlayerView(humanPlayer);
+                add(playerView, BorderLayout.CENTER);
 //                todo; google how to tigger for repaint
 
 
@@ -60,6 +65,7 @@ public class STMainGUI extends JFrame {
                 String greet = players;
                 greeting.setText(greet);
             }
+
         });
 
 
