@@ -57,7 +57,7 @@ public class STMainGUI extends JFrame {
 
 
                 String players = answer.getText();
-                String greet = players + " people will be playing ";
+                String greet = players;
                 greeting.setText(greet);
             }
         });
