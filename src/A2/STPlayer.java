@@ -18,6 +18,9 @@ public class STPlayer {
         this.cards = cards;
     }
 
+    public ArrayList<STCard> getCards(){
+    return cards;}
+
     public String toString(){
 
         return " PlayerId= " + playerID + "\n" + playerID + " cards are: " + cards;

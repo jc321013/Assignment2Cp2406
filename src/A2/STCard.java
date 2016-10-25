@@ -8,6 +8,7 @@ import java.util.ArrayList;
 public class STCard{
 
     private int id;
+    private String name;
     private String title;
     private String[] categories;
     private String chemicalFormula;
@@ -21,6 +22,19 @@ public class STCard{
     private String economicValue;
 
     private static final ArrayList<STCard> cards = new ArrayList<>();
+
+    public STCard(int i, String s) {
+        id = i;
+        name = s;
+    }
+     public String getName(){
+         return name;
+     }
+    public int getId() {
+        return id;
+    }
+
+
 
     public String toString()
     {

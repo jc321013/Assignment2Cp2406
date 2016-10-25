@@ -8,7 +8,7 @@ import java.awt.event.ActionListener;
 /**
  * Created by jmarc on 25/10/2016.
  */
-public class STMainGUI extends JFrame implements ActionListener {
+public class STMainGUI extends JFrame {
     JLabel question = new JLabel("Number of Players?");
     Font bigFont = new Font("Arial", Font.BOLD, 16);
     JTextField answer = new JTextField(10);
@@ -39,31 +39,33 @@ public class STMainGUI extends JFrame implements ActionListener {
         add(pressMe, BorderLayout.SOUTH);
         add(greeting, BorderLayout.EAST);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        pressMe.addActionListener(this);
+        pressMe.addActionListener(new ActionListener() {
 
 
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // todo; get number of players from text field
+                game = new STGame(5);
+                game.selectDealer();
+                game.dealRandomCardsToEachPlayer();
 
-    }
-
-    @Override
-    public void actionPerformed(ActionEvent e) {
-// todo; get number of players from text field
-        game = new STGame(5);
-        game.selectDealer();
-        game.dealRandomCardsToEachPlayer();
-
-        game.selectYouAsPlayer();
-        STPlayer humanPlayer = game.getHumanPlayer();
-        PlayerView view = new PlayerView(humanPlayer);
-        add(view, BorderLayout.CENTER);
+                game.selectYouAsPlayer();
+                STPlayer humanPlayer = game.getHumanPlayer();
+                PlayerView view = new PlayerView(humanPlayer);
+                add(view, BorderLayout.CENTER);
+//                todo; google how to tigger for repaint
 
 
-        String players = answer.getText();
-        String greet = players + " people will be playing ";
-        greeting.setText(greet);
+                String players = answer.getText();
+                String greet = players + " people will be playing ";
+                greeting.setText(greet);
+            }
+        });
 
 
-    }
+        }
+
+
 }
 
 
