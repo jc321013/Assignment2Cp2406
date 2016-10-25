@@ -1,4 +1,4 @@
-package A1;
+package A2;
 
 import java.util.ArrayList;
 
@@ -44,11 +44,11 @@ public class STCard{
     }
 
 
-//public class A1.STCard {
+//public class A2.STCard {
 //    private int id;
 //
 //
-//    public A1.STCard(int id) {
+//    public A2.STCard(int id) {
 //        this.id = id;
 //    }
 

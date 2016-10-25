@@ -1,4 +1,4 @@
-package A1;
+package A2;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -89,7 +89,8 @@ public class STGame {
     }
 
 
-
+    public void selectDealer() {
+    }
 }
 
 

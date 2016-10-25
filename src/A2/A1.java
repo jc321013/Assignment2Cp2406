@@ -1,4 +1,4 @@
-package A1;
+package A2;
 
 import java.util.Scanner;
 
@@ -37,7 +37,7 @@ public class A1 {
     private static STGame startNewGame() {
 //Starts game, controls most functions
         int numPlayers = getNumPlayers();
-//        int dealerID  = A1.STGame.selectDealer(numPlayers);
+//        int dealerID  = A2.STGame.selectDealer(numPlayers);
         STGame game = new STGame(numPlayers);
         STGame.selectDealer(numPlayers);
         game.dealRandomCardsToEachPlayer();

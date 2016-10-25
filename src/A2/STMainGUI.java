@@ -16,6 +16,7 @@ public class STMainGUI extends JFrame implements ActionListener {
     JLabel greeting = new JLabel("");
     final int HEIGHT = 225;
     final int WIDTH = 275;
+
     private STGame game;
 
     public static void main(String[] args)
@@ -30,13 +31,13 @@ public class STMainGUI extends JFrame implements ActionListener {
     {
         super("Mineral Super Trumps Game");
         setSize(WIDTH, HEIGHT);
-        setLayout(new FlowLayout());
+//        setLayout(new FlowLayout());
         question.setFont(bigFont);
         greeting.setFont(bigFont);
         add(question, BorderLayout.NORTH);
-        add(answer);
-        add(pressMe);
-        add(greeting, BorderLayout.SOUTH);
+        add(answer, BorderLayout.WEST);
+        add(pressMe, BorderLayout.SOUTH);
+        add(greeting, BorderLayout.EAST);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         pressMe.addActionListener(this);
 
@@ -46,12 +47,15 @@ public class STMainGUI extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
+// todo; get number of players from text field
         game = new STGame(5);
         game.selectDealer();
         game.dealRandomCardsToEachPlayer();
 
         game.selectYouAsPlayer();
+        STPlayer humanPlayer = game.getHumanPlayer();
+        PlayerView view = new PlayerView(humanPlayer);
+        add(view, BorderLayout.CENTER);
 
 
         String players = answer.getText();
