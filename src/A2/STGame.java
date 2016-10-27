@@ -9,6 +9,7 @@ import java.util.Random;
 public class STGame {
     //    Initalzing number of cards to deal to each player
     private static final int NUM_CARDS_TO_DEAL = 8;
+    public static STGame currentGame;
     private int numPlayers;
     private int dealerID;
     private STPlayer[] players;
@@ -21,6 +22,8 @@ public class STGame {
         this.numPlayers = numPlayers;
         deck = new STDeck();
 
+        currentGame = this;
+
     }
 
     //    Randomly select dealer from 3-5 players
@@ -31,9 +34,15 @@ public class STGame {
         dealerID = n;
         System.out.println( "The Dealer is Player " + dealerID);
 //        return dealerID;
+    }
 
-
-
+    public boolean playCard(STCard card){
+//        play card by human
+//        loop over the rest of bots
+//        current card
+        STMainGUI.mainUI.reload();
+//        and wait 1 second
+        return true;
     }
 
     //    created a loop to randomly deal cards to each player
@@ -91,6 +100,8 @@ public class STGame {
 
     public void selectDealer() {
     }
+
+
 }
 
 

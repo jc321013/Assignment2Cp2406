@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
  * Created by jmarc on 25/10/2016.
  */
 public class STMainGUI extends JFrame {
+    public static STMainGUI mainUI;
     JLabel question = new JLabel("Number of Players?");
     Font bigFont = new Font("Arial", Font.BOLD, 16);
     JTextField answer = new JTextField(10);
@@ -31,14 +32,20 @@ public class STMainGUI extends JFrame {
     public STMainGUI()
     {
         super("Mineral Super Trumps Game");
+        mainUI = this;
         setSize(WIDTH, HEIGHT);
 //        setLayout(new FlowLayout());
         question.setFont(bigFont);
         greeting.setFont(bigFont);
-        add(question, BorderLayout.NORTH);
-        add(answer, BorderLayout.WEST);
+        JPanel panel1 = new JPanel();
+        panel1.add(question);
+        panel1.add(answer);
+        add(panel1, BorderLayout.NORTH);
+//        add(question, BorderLayout.NORTH);
+//        add(answer, BorderLayout.WEST);
+
         add(pressMe, BorderLayout.SOUTH);
-        add(greeting, BorderLayout.EAST);
+//        add(greeting, BorderLayout.EAST);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         pressMe.addActionListener(new ActionListener() {
 
@@ -51,13 +58,8 @@ public class STMainGUI extends JFrame {
                 game.dealRandomCardsToEachPlayer();
 
                 game.selectYouAsPlayer();
-                STPlayer humanPlayer = game.getHumanPlayer();
-                if (playerView != null) {
-                    remove(playerView);
-                }
 
-                playerView = new PlayerView(humanPlayer);
-                add(playerView, BorderLayout.CENTER);
+                reload();
 //                todo; google how to tigger for repaint
 
 
@@ -72,6 +74,17 @@ public class STMainGUI extends JFrame {
         }
 
 
+
+    public void reload() {
+        if (playerView != null) {
+            remove(playerView);
+        }
+//        todo: add panel currentCardView
+        STPlayer humanPlayer = game.getHumanPlayer();
+        playerView = new PlayerView(humanPlayer);
+
+        add(playerView, BorderLayout.CENTER);
+    }
 }
 
 
