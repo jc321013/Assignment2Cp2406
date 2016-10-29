@@ -46,7 +46,7 @@ public class STGame {
     }
 
     //    created a loop to randomly deal cards to each player
-    public void dealRandomCardsToEachPlayer() {
+    public STPlayer dealRandomCardsToEachPlayer() {
 
         players = new STPlayer[numPlayers];
         for (int i = 0; i < numPlayers; i++) {
@@ -63,6 +63,7 @@ public class STGame {
         }
 
 
+        return null;
     }
 
 

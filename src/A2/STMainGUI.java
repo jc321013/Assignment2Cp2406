@@ -14,12 +14,13 @@ public class STMainGUI extends JFrame {
     Font bigFont = new Font("Arial", Font.BOLD, 16);
     JTextField answer = new JTextField(10);
     JButton pressMe = new JButton("New Game");
-    JLabel greeting = new JLabel("");
+    JLabel greeting = new JLabel(" ");
     final int HEIGHT = 225;
     final int WIDTH = 275;
 
     private STGame game;
     PlayerView playerView;
+
 
     public static void main(String[] args)
     {
@@ -40,33 +41,30 @@ public class STMainGUI extends JFrame {
         JPanel panel1 = new JPanel();
         panel1.add(question);
         panel1.add(answer);
+        panel1.add(greeting, BorderLayout.NORTH);
         add(panel1, BorderLayout.NORTH);
+
 //        add(question, BorderLayout.NORTH);
 //        add(answer, BorderLayout.WEST);
 
         add(pressMe, BorderLayout.SOUTH);
-//        add(greeting, BorderLayout.EAST);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        pressMe.addActionListener(new ActionListener() {
+        pressMe.addActionListener(e -> {
+            // todo; get number of players from text field
 
+            game = new STGame(5);
+            game.selectDealer();
+            game.dealRandomCardsToEachPlayer();
 
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                // todo; get number of players from text field
-                game = new STGame(5);
-                game.selectDealer();
-                game.dealRandomCardsToEachPlayer();
+            game.selectYouAsPlayer();
 
-                game.selectYouAsPlayer();
-
-                reload();
+            reload();
 //                todo; google how to tigger for repaint
 
 
-                String players = answer.getText();
-                String greet = players;
-                greeting.setText(greet);
-            }
+            String players = answer.getText();
+            String greet = players + " Players will be playing";
+            greeting.setText(greet);
 
         });
 
