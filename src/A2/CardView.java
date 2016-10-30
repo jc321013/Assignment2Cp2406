@@ -16,23 +16,12 @@ public class CardView extends JPanel {
         cardName = new JLabel(card.getName() + "_id" + card.getId());
         add(cardName);
 
-//        card.getImage();
-//        addMouseListener(new MouseInputAdapter() {
-//            @Override
-//            public void mouseClicked(MouseEvent e) {
-//
-//                super.mouseClicked(e);
-//                STGame.currentGame.validCardToPlay(card);
-//                cardName.setText("I Was Clicked!");
-//            }
-//        });
-//    }
         addMouseListener(new MyMouse());
     }
 
     class MyMouse extends MouseInputAdapter{
         public void mouseClicked(MouseEvent e) {
-
+//          class allows for the clicks on the cards, whats is displayed
             super.mouseClicked(e);
             STGame game = STGame.currentGame;
             boolean ok = game.playCard(card);
@@ -46,6 +35,7 @@ public class CardView extends JPanel {
 
 //          place cardView to play-table-view shows what card is
 //            remove card-view from player-view
+//            when clicking on cards displays i was clicked
             cardName.setText("I Was Clicked!");
         }
 

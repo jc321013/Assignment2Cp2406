@@ -15,6 +15,7 @@ public class STMainGUI extends JFrame {
     JTextField answer = new JTextField(10);
     JButton pressMe = new JButton("New Game");
     JLabel greeting = new JLabel(" ");
+    JLabel farewell = new JLabel("Thankyou for playing :) ");
     final int HEIGHT = 225;
     final int WIDTH = 275;
 
@@ -32,23 +33,28 @@ public class STMainGUI extends JFrame {
 
     public STMainGUI()
     {
+//        GUI Label
         super("Mineral Super Trumps Game");
         mainUI = this;
         setSize(WIDTH, HEIGHT);
-//        setLayout(new FlowLayout());
+
         question.setFont(bigFont);
         greeting.setFont(bigFont);
+        farewell.setFont(bigFont);
         JPanel panel1 = new JPanel();
+//        groups up the panels so they consist in the same boarder setting
         panel1.add(question);
         panel1.add(answer);
+        add(farewell, BorderLayout.CENTER);
         panel1.add(greeting, BorderLayout.NORTH);
+
         add(panel1, BorderLayout.NORTH);
 
-//        add(question, BorderLayout.NORTH);
-//        add(answer, BorderLayout.WEST);
 
         add(pressMe, BorderLayout.SOUTH);
+//        Exits the game
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        processes the action event
         pressMe.addActionListener(e -> {
             // todo; get number of players from text field
 
@@ -61,7 +67,7 @@ public class STMainGUI extends JFrame {
             reload();
 //                todo; google how to tigger for repaint
 
-
+//          recieves the text from the answer and displays next to the textfield
             String players = answer.getText();
             String greet = players + " Players will be playing";
             greeting.setText(greet);
@@ -86,19 +92,3 @@ public class STMainGUI extends JFrame {
 }
 
 
-//    final int SIZE = 180;
-//    Container con = getContentPane();
-//    JButton button = new JButton("Click");
-//    public JHelloFrame()
-//    {
-//        super("Hello Frame");
-//        con.setLayout(new FlowLayout());
-//        setSize(SIZE, SIZE);
-//        setVisible(true);
-//        con.add(button);
-//        button.addActionListener(this);
-//    }
-//    @Override
-//    public void actionPerformed(ActionEvent e)
-//    {
-//        button.setEnabled(true);

@@ -8,7 +8,8 @@ import java.util.ArrayList;
  */
 public class PlayerView extends JPanel {
     STPlayer player;
-    JLabel playerName = new JLabel("Not Set");
+    JLabel playerName = new JLabel("Human Players Cards");
+
 
     public PlayerView(STPlayer player){
         this.player = player;
@@ -16,17 +17,20 @@ public class PlayerView extends JPanel {
         addAllCards();
     }
 
+  
+
+
     private void addAllCards() {
 //        ArrayList<STCard> cards = player.getCards();
         ArrayList<STCard> cards = new ArrayList<STCard>();
-
+//      not set cards displayed
         cards.add(new STCard(11, "11"));
         cards.add(new STCard(12, "12"));
         cards.add(new STCard(13, "13"));
         cards.add(new STCard(14, "14"));
         cards.add(new STCard(15, "15"));
         cards.add(new STCard(16, "16"));
-
+//      loops gets the cards and views them
         for (int i = 0; i < cards.size(); i++) {
             STCard card = cards.get(i);
             CardView cardView = new CardView(card);
