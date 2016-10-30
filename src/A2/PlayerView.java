@@ -17,20 +17,20 @@ public class PlayerView extends JPanel {
         addAllCards();
     }
 
-  
+
 
 
     private void addAllCards() {
 //        ArrayList<STCard> cards = player.getCards();
         ArrayList<STCard> cards = new ArrayList<STCard>();
-//      not set cards displayed
+//      not set cards displayed for human player
         cards.add(new STCard(11, "11"));
         cards.add(new STCard(12, "12"));
         cards.add(new STCard(13, "13"));
         cards.add(new STCard(14, "14"));
         cards.add(new STCard(15, "15"));
         cards.add(new STCard(16, "16"));
-//      loops gets the cards and views them
+//      loop gets the cards and views them
         for (int i = 0; i < cards.size(); i++) {
             STCard card = cards.get(i);
             CardView cardView = new CardView(card);
